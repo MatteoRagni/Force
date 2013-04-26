@@ -17,8 +17,8 @@
 			$name = $_FILES["filesToUpload"]["name"][$key];
 			move_uploaded_file($tmp_name, $world['upload_temp'] . "/" . $name);
 			$cp_string = "cp " . $world['upload_temp'] . "/" . $name . " " . $_SESSION['home'];
-			$rm_string = "rm " . $world['upload_temp'] . "/" . $name;
-			ssh2_exec2($_SESSION['username'],$_SESSION['password'], $cp_string . " && " . $rm_string);
+			ssh2_exec2($_SESSION['username'],$_SESSION['password'], $cp_string);
+			unlink($world['upload_temp'] . "/" . $name);
 		}
 	}
 	
