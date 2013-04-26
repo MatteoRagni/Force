@@ -7,6 +7,10 @@
 	$world['sshserver']             = "localhost";
 	$world['sshport']               = "22";
 	$world['queue_list']			= array("batch","Another_queue1","Another_queue2");
+	$world['upload_temp']			= '/var/www/uploads';
+	
+	// Bisogna ricordarsi di settare il parametro di upload_temp_dir
+	
 	
 	
 	// ----- DO NOT EDIT -------
