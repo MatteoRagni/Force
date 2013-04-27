@@ -157,15 +157,7 @@
 			</div>
 			<div class="tab-pane" id="ReloadExisting">
 				<!-- run script file già nella home -->
-				<form>
-					<div class="input-prepend input-append">
-						<span class="add-on"><? echo '<strong>' . $_SESSION['username'] . ':~$ qsub</strong> ' . $_SESSION['home'] . '/ '; ?></span>  
-						<input 	class="input-block-level" type="text" name="relative_path" 
-								placeholder="Insert script relative to your home path" >
-						<button type="submit" class="btn btn-primary"><i class="icon-circle-arrow-right icon-white"></i> Launch!</button>
-					</div>
-				</form>
-					<? include('html_include/tree_explorer.php'); ?>
+				<? include('html_include/qsub_run.php'); ?>
 			</div>
 		</div> <!-- div myTabContent -->
 	

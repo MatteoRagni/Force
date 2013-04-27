@@ -36,3 +36,5 @@ We have used:
 
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
+	
+for more info you can contact mailto:matteo.ragni.it@gmail.com
