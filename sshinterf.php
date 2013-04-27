@@ -127,6 +127,13 @@
 	<!-- Body -->
 	<div class="container" id="common-page">
 		<h1>Session under development</h1>
+		
+		<button type="button" class="btn btn-danger" data-toggle="collapse" data-target="#demo">
+  simple collapsible
+</button>
+ 
+<div id="demo" class="collapse in"> … </div>
+		
 		<?  echo "Testing session<br />";
 			echo $_SESSION['username']."<br />"; 
 			
