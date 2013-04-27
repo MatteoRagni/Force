@@ -131,7 +131,7 @@
 			echo $_SESSION['username']."<br />"; 
 			
 			echo $_SESSION['home']."<br />";
-			echo ssh2_exec2($_SESSION['username'], $_SESSION['password'], 'echo $PWD') . "<br/>";
+			include('html_include/tree_explorer.php');
 		?>
     </div> <!-- /container -->
 	<!-- Fine Body -->

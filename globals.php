@@ -57,16 +57,12 @@
 			// Estrai lo stream
 			stream_set_blocking($ssh_stream, true);
 			$output = "";
-			while ($buf = fread($ssh_stream,4096)) { 
+			while ($buf = fread($ssh_stream,4096*8)) { 
 				$output .= $buf;
 			}
 			fclose($ssh_stream);
 		}
 		return $output;
-	};
-	
-	function xml_qstat_reader($qstat_xml) {
-		
 	};
 	
 ?>

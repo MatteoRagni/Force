@@ -18,3 +18,4 @@ We have used:
 - jQuery-1.9
 - GC_Prettyprint
 - torque-2.5.12
+- tree (apt-get install tree)

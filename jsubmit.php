@@ -156,7 +156,7 @@
 				<? include('html_include/qsubupload.php'); ?>
 			</div>
 			<div class="tab-pane" id="ReloadExisting">
-				<h1>RELOAD EXISTING SCRIPT</h1>
+				<? include('html_include/tree_explorer.php'); ?>
 			</div>
 		</div> <!-- div myTabContent -->
 	
