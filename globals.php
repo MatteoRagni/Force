@@ -3,10 +3,9 @@
 	$world['ClusterLogo']           = "img/x-cluster-logo.png";
 	$world['UniLogo']				= "img/unitn-logo.png";
 	$world['GangliaURL']            = 'http://ganglia.wikimedia.org/latest/';
-	$world['AdminMail']             = "nirvana1289@gmail.com";
+	$world['AdminMail']             = "matteo.ragni.it@gmail.com";
 	$world['University']            = "Università degli studi di Trento";
 	$world['queue_list']			= array("batch","Another_queue1","Another_queue2");
-	$world['upload_temp']			= '/var/www/uploads';
 	$world['tmp']					= '/tmp';
 	$debug							= true;
 	
