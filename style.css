@@ -81,3 +81,33 @@ body {
 	/*font: 20pt bold 'Vollkorn';*/
 	color:#bbb;
 }
+
+/* Progress bar */
+.jobwall {
+	position:relative; 
+	top:10px; 
+	left:-10px;
+}
+
+.modalbadge {
+	position:relative; 
+	top:-5px;
+}
+
+.barmodal{
+	position:relative; 
+	top:-17px;
+	left:60px;
+	width:260px;
+	height:10px;
+}
+
+.barlist {
+	height: 10px;
+}
+
+.tdelem { 
+	font-weight: bold;
+	font-size: 0.8em;
+	width:150px;
+}

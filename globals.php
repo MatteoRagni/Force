@@ -1,7 +1,8 @@
 <?
 	$world['ClusterName']           = "X-CLUSTER";
 	$world['ClusterLogo']           = "img/x-cluster-logo.png";
-	$world['GangliaURL']            = "http://x-cluster.science.unitn.it";
+	$world['UniLogo']				= "img/unitn-logo.png";
+	$world['GangliaURL']            = 'http://x-cluster.science.unitn.it';
 	$world['AdminMail']             = "nirvana1289@gmail.com";
 	$world['University']            = "Università degli studi di Trento";
 	$world['sshserver']             = "localhost";
@@ -16,11 +17,12 @@
 	// ----- DO NOT EDIT -------
 	
 	$world['ClusterLogo2'] = "<img src=\"" . $world['ClusterLogo'] . "\" width=\"150px\">"; 
-	$world['GangliaURL2'] = "<a href=\"" . $world['GangliaURL'] . "\">Ganglia</a>";
+	$world['UniLogo2'] = "<img src=\"" . $world['UniLogo'] . "\" width=\"150px\">"; 
+	$world['GangliaURL2'] = '<a href="' . $world['GangliaURL'] . '"><i class="icon-eye icon-white"></i> Ganglia</a>';
 	$world['AdminMail2'] = "<a href=\"mailto:" . $world['AdminMail'] . "\">Contact Admin</a>";
 	$world['AdminMail3'] = "<a href=\"mailto:" . $world['AdminMail'] . "\">here</a>";
 	
-	$VERSION = "v0.2 - Linux";
+	$VERSION = "v0.7 - Linux - DEBUG";
 ?>
 
 <?php
@@ -65,20 +67,35 @@
 		return $output;
 	};
 	
-	function epoch2time($secs){
-    $bit = array(
-        'y' => $secs / 31556926 % 12,
-        'w' => $secs / 604800 % 52,
-        'd' => $secs / 86400 % 7,
-        'h' => $secs / 3600 % 24,
-        'm' => $secs / 60 % 60,
-        's' => $secs % 60
-        );
-        
-    foreach($bit as $k => $v)
-        if($v > 0)$ret[] = $v . $k;
-        
-    return join(' ', $ret);
-    };
+	function redirectssl() {
+		if(!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] == ""){
+			$redirect = "https://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+			header("Location: $redirect");
+		}
+	}
 	
+	function ssh2_sftp_down($username, $password, $abs_path) {
+	
+		global $world;
+		
+		// Apre la risorsa SSH
+		$connection_handler = ssh2_connect($world['sshserver'],$world['sshport']);
+		if(!$connection_handler) { 
+			die("[globals.php] Connection Failed: ". $world['sshserver']." at ".$world['sshport']); 
+		}
+		
+		// Esegue la autenticazione in SSH con password plain
+		$connection = ssh2_auth_password($connection_handler,$username,$password);
+		if (!$connection) { 
+			die("[globals.php] AuthPass Connection Failed!");
+		}
+		
+		$sftp = ssh2_sftp($connection_handler);
+		
+		$stream = fopen("ssh2.sftp://$sftp$abs_path", 'r');
+		
+		return $stream;
+		
+	}
+		
 ?>

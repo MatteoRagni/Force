@@ -1,1 +1,2 @@
-<? 	phpinfo(); ?>
+<?	session_start();
+ 	phpinfo(); ?>

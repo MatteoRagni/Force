@@ -4,8 +4,9 @@
 	<p>Left here to upload in your $HOME directory<br />
 	<small>$HOME = <? echo $_SESSION['home']; ?></small></p>
 </div>
-<form class="form-actions" align="right" method="post" action="upload_scp.php" enctype="multipart/form-data">
+<form class="form-actions"  method="post" action="upload_scp.php" enctype="multipart/form-data">
 	<input id="input_file" style="display:none;" type="file" multiple="" name="filesToUpload[]"/>
+	<input type="hidden" name="<?php echo ini_get("session.upload_progress.name"); ?>" value="demo">
 	<div id="list_file"></div>
 	<button type="submit" class="btn btn-primary btn-large" value="Send"><i class="icon-white icon-file"></i> Upload files</button>
 </form>
@@ -61,3 +62,6 @@ dropZone.addEventListener('drop', handleFileSelect, false);
 
  
 </script>
+
+<!-- Provo a scrivere un pezzo di codice chhe mi permetta di visualizzare il caricamento sulla pagina-->
+

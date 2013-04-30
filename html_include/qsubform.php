@@ -583,6 +583,9 @@ where job_name is the name of  the  job,  see  -N  option,  and sequence_number 
 		<textarea id="bash_body" class="input-block-level" rows="5" 
 		placeholder="Insert bash script body here..." name="bash_body"
 		onkeypress="compose();" onchange="compose();"></textarea>
+		<p>
+		<button class="btn btn-small" data-toggle="modal" data-target="#envvars-modal">Show envvars</button>
+		</p>
 		</div>
 </fieldset>		
 
@@ -599,6 +602,117 @@ where job_name is the name of  the  job,  see  -N  option,  and sequence_number 
 	<button type="submit" class="btn btn-primary btn-large"><i class="icon-download-alt icon-white" ></i> Save and submit PBS script</button>
 	</p>
 </form>
+
+<!-- Modal delle envvars -->
+<div id="envvars-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">EnvVariables</h3>
+  </div>
+  <div class="modal-body">
+    <p>
+		<h4>Enviromental variables</h4>
+		<table class="table">
+			<thead><tr>
+				<th>EnvVar Name</th>
+				<th>... becomes</th>
+				<th>Value</th>
+			</tr></thead>
+			<tbody>
+				<tr>
+				<td class="tdelem">$USER</td>
+				<td class="tdelem"></td>
+				<td><pre><code><? echo ssh2_exec2($_SESSION['username'],$_SESSION['password'],'echo $USER'); ?></code></pre></td>
+				</tr>
+				<tr>
+				<td class="tdelem">$UID</td>
+				<td class="tdelem"></td>
+				<td><pre><code><? echo ssh2_exec2($_SESSION['username'],$_SESSION['password'],'echo $UID'); ?></code></pre></td>
+				</tr>
+				<tr>
+				<td class="tdelem">$HOME</td>
+				<td class="tdelem">$PBS_O_HOME</td>
+				<td><pre><code><? echo ssh2_exec2($_SESSION['username'],$_SESSION['password'],'echo $HOME'); ?></code></pre></td>
+				</tr>
+				<tr>
+				<td class="tdelem">$PATH</td>
+				<td class="tdelem">$PBS_O_PATH</td>
+				<td><pre><code><? echo ssh2_exec2($_SESSION['username'],$_SESSION['password'],'echo $PATH'); ?></code></pre></td>
+				</tr>
+				<tr>
+				<td class="tdelem">$SHELL</td>
+				<td class="tdelem">$PBS_O_SHELL</td>
+				<td><pre><code><? echo ssh2_exec2($_SESSION['username'],$_SESSION['password'],'echo $SHELL'); ?></code></pre></td>
+				</tr>
+				<tr>
+				<td class="tdelem">$LD_LIBRARY_PATH</td>
+				<td class="tdelem"></td>
+				<td><pre><code><? echo ssh2_exec2($_SESSION['username'],$_SESSION['password'],'echo $LD_LIBRARY_PATH'); ?></code></pre></td>
+				</tr>
+				<tr>
+				<td class="tdelem">$HOSTNAME</td>
+				<td class="tdelem"></td>
+				<td><pre><code><? echo ssh2_exec2($_SESSION['username'],$_SESSION['password'],'echo $HOSTNAME'); ?></code></pre></td>
+				</tr>
+			</tbody>
+		</table>
+	</p>
+	<p>
+		<h4>PBS Variables</h4>
+		<table class="table">
+			<thead><tr>
+				<th>Variable name</th>
+				<th>Description</th>
+			</tr></thead>
+			<tbody>
+				<tr>
+				<td class="tdelem">$PBS_O_HOST</td>
+				<td>the name of the host upon which the qsub command is running.</td>
+				</tr>
+				<tr>
+				<td class="tdelem">$PBS_SERVER</td>
+				<td>the hostname of the pbs_server which qsub submits the job to.</td>
+				</tr>
+				<tr>
+				<td class="tdelem">$PBS_O_QUEUE</td>
+				<td>the name of the original queue to which the job was submitted.</td>
+				</tr>
+				<tr>
+				<td class="tdelem">$PBS_O_WORKDIR</td>
+				<td>the  absolute  path of the current working directory of the qsub command.</td>
+				</tr>
+				<tr>
+				<td class="tdelem">$PBS_ARRAYID</td>
+				<td>each member of a job array is assigned a unique identifier (see -t)</td>
+				</tr>
+				<tr>
+				<td class="tdelem">$PBS_ENVIROMENT</td>
+				<td>set  to  PBS_BATCH  to  indicate  the  job is a batch job, or to PBS_INTERACTIVE to indicate the job is a  PBS  interactive  job, see -I option.</td>
+				</tr>
+				<tr>
+				<td class="tdelem">$PBS_JOBID</td>
+				<td>the job identifier assigned to the job by the batch system.</td>
+				</tr>
+				<tr>
+				<td class="tdelem">$PBS_JOBNAME</td>
+				<td>the job name supplied by the user.</td>
+				</tr>
+				<tr>
+				<td class="tdelem">$PBS_NODEFILE</td>
+				<td>the  name  of the file contain the list of nodes assigned to the job (for parallel and cluster systems).</td>
+				</tr>
+				<tr>
+				<td class="tdelem">$PBS_QUEUE</td>
+				<td>the name of the queue from which the job is executed.</td>
+				</tr>
+			</tbody>
+		</table>
+	</p>
+   </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+  </div>
+</div>
 
 <!--
 	TODO
