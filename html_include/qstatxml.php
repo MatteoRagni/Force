@@ -21,7 +21,7 @@ function qstat_parser($string) {
 		$j['mail']      = (string) $job->Mail_Users;
 		$j['nodes']     = (string) $job->Resource_List->nodes;
 		$j['walltime']  = (string) $job->Resource_List->walltime;
-		$j['script']    = (string) ($job->init_work_dir . $job->submit_args);
+		$j['script']    = (string) ($job->init_work_dir .'/'. $job->submit_args);
 		
 		$j['tstart']    = date('H:m:s \o\n d/m/Y',(int)$job->start_time);
 		$j['runtime']   = (string) $job->resources_used->walltime; 
