@@ -45,9 +45,21 @@
 	<!-- Fine Header -->
 	
 	<!-- Body -->
+	<!-- Suddivisione in Tab: header delle tab -->
 	<div class="container" id="common-page">
-		<? include('html_include/qstatxml.php'); ?>
-    </div> <!-- /container -->
+		<ul class="nav nav-tabs" id="myTab">
+			<li class="active">
+				<a href="#queue_state" data-toggle="tab"><h3>Status Queue</h3></a>
+			</li>
+		</ul>
+	
+	<!-- Suddivisione in Tab: Contenuto delle tab -->
+		<div id="myTabContent" class="tab-content">
+			<div class="tab-pane active" id="queue_state">
+				<? include('html_include/qstatxml.php'); ?>
+			</div> <!-- /container -->
+		</div>
+	</div> <!-- div myTabContent -->
 	<!-- Fine Body -->
 	
 	<!-- FOOTER -->

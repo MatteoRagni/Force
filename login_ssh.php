@@ -3,7 +3,7 @@
 	session_start();
 	include_once("globals.php");
 		
-	$_SESSION['home'] = null;$snip =  
+	$_SESSION['home'] = null;  
 	
 	$_SESSION['home'] = preg_replace('~[[:cntrl:]]~', '', ssh2_exec2($_POST['username'],$_POST['password'],'echo $HOME'));
 	

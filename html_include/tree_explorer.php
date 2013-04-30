@@ -38,12 +38,14 @@ function tree_xml_decode($xml, $path) {
 						<h5>
 						<a onclick="Popup('."'".'catfile.php?file2cat='.$path.$file['name']."'".')" data-toggle="tooltip" title="Open and show file">  
 						<i class="icon-file"></i></a> 
-						<a onclick="Popup('."'".'download.php?file='.$path.$file['name']."'".')" data-toggle="tooltip" title="Download">  
+						<a href="download.php?file='.$path.$file['name'].'" data-toggle="tooltip" title="Download">  
 						<i class="icon-download-alt"></i></a>
-						<a onclick="Popup('."'".'download.php?file='.$path.$file['name']."'".')" data-toggle="tooltip" title="Put file in launch textbox">  
+						<a onclick="click_fun2('."'".$path.$file['name']."'".')" data-toggle="tooltip" title="Put file in launch textbox">  
 						<i class="icon-circle-arrow-right"></i></a>
 						' . $file['name'] . '
-						<small>Last Modified: ' . $file['time'] . ' - Size: ' . $file['size'] . 'B - Path: '. $href  .'</small></h5>
+						<small>Last Modified: ' . $file['time'] . ' - Size: ' . $file['size'] . 'B - Path: '. $href  .'</small>
+						<a onclick="click_fun3('."'".$path.$file['name']."'".')" data-toggle="tooltip" title="Put file in launch textbox">  
+						<i class="icon-remove icon-white" style="background-color:red;border-radius:100%" ></i></a></h5>
 					</li>
 					';                            
 	}		

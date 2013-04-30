@@ -284,7 +284,12 @@ $output .= '  </div>
 
 <?
 // Debug options :: qstat has to be modified before production
-$qstat_cmd = 'cat $HOME/qstat.xml';
+if($debug) {
+	$qstat_cmd = 'cat $HOME/qstat.xml';
+} else {
+	$qsta_cmd = 'qstat -X';
+}
+
 $qstat_xml = ssh2_exec2($_SESSION['username'], $_SESSION['password'], $qstat_cmd);
 
 $jobout = "";

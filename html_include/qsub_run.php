@@ -12,6 +12,9 @@ function click_fun(obj) {
 	var path = obj.innerHTML;
 	$('#job_script_name').val(path);
 } 
+function click_fun2(path) {
+	$('#job_script_name').val(path);
+}
  
 function Popup(apri) {
   window.open(encodeURI(apri), "", "top=10, left=10, width=800, height=600, status=no, menubar=no, toolbar=no scrollbars=no");

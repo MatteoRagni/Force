@@ -83,7 +83,7 @@
 			<div class="span4">
 				<h2>Ganglia</h2>
 				<p>Access the monitoring system to keep under control the whole cluster.</p>
-				<p><a class="btn btn-primary" href=<?echo $world['GangliaURL'];?> ><i class="icon-white"></i> Go to Ganglia...</a></p>
+				<p><a class="btn btn-primary" href=<?echo $world['GangliaURL'];?> ><i class="icon-eye-open icon-white"></i> Go to Ganglia...</a></p>
 			</div>
 		</div>
     </div> <!-- /container -->

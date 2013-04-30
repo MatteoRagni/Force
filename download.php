@@ -6,13 +6,13 @@
 	// Apre la risorsa SSH
 	$connection_handler = ssh2_connect($world['sshserver'],$world['sshport']);
 	if(!$connection_handler) { 
-		die("[globals.php] Connection Failed: ". $world['sshserver']." at ".$world['sshport']); 
+		die("[download.php] Connection Failed: ". $world['sshserver']." at ".$world['sshport']); 
 	}
 		
 	// Esegue la autenticazione in SSH con password plain
 	$connection = ssh2_auth_password($connection_handler,$_SESSION['username'],$_SESSION['password']);
 	if (!$connection) { 
-		die("[globals.php] AuthPass Connection Failed!");
+		die("[download.php] AuthPass Connection Failed!");
 	}
 	
 	// Copia il file in un punto raggiungibile dall'interprete	

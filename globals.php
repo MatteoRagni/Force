@@ -9,6 +9,7 @@
 	$world['sshport']               = "22";
 	$world['queue_list']			= array("batch","Another_queue1","Another_queue2");
 	$world['upload_temp']			= '/var/www/uploads';
+	$debug							= true;
 	
 	// Bisogna ricordarsi di settare il parametro di upload_temp_dir
 	
@@ -18,7 +19,7 @@
 	
 	$world['ClusterLogo2'] = "<img src=\"" . $world['ClusterLogo'] . "\" width=\"150px\">"; 
 	$world['UniLogo2'] = "<img src=\"" . $world['UniLogo'] . "\" width=\"150px\">"; 
-	$world['GangliaURL2'] = '<a href="' . $world['GangliaURL'] . '"><i class="icon-eye icon-white"></i> Ganglia</a>';
+	$world['GangliaURL2'] = '<a href="' . $world['GangliaURL'] . '"><i class="icon-eye-open icon-white"></i> Ganglia</a>';
 	$world['AdminMail2'] = "<a href=\"mailto:" . $world['AdminMail'] . "\">Contact Admin</a>";
 	$world['AdminMail3'] = "<a href=\"mailto:" . $world['AdminMail'] . "\">here</a>";
 	

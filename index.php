@@ -68,18 +68,7 @@
 	<!-- Fine Body -->
 	
 	<!-- FOOTER -->
-	 <div id="footer">
-      <div class="container">
-		<table width="100%">
-			<tr><td>
-				<p class="muted credit"><? echo $world['University']; ?></p>
-				<p class="author"><a href="mailto:nirvana1289@gmail.com">Matteo Ragni</a> - PBSWebUI 2013 - <? echo $VERSION ?></p>
-			</td><td align="right">
-				<? echo $world['ClusterLogo2']; ?>
-			</td></tr>
-		</table>
-      </div>
-    </div>
+	 <? include('html_include/footer.php'); ?>
 	<!-- FINE FOOTER -->
 	</body>
 </html>

@@ -45,10 +45,21 @@
 	<!-- Fine Header -->
 	
 	<!-- Body -->
+	<!-- Suddivisione in Tab: header delle tab -->
 	<div class="container" id="common-page">
-		<h1>Session under development!<h1>
-
-    </div> <!-- /container -->
+		<ul class="nav nav-tabs" id="myTab">
+			<li class="active">
+				<a href="#sshinterf" data-toggle="tab"><h3>Status Queue</h3></a>
+			</li>
+		</ul>
+	
+	<!-- Suddivisione in Tab: Contenuto delle tab -->
+		<div id="myTabContent" class="tab-content">
+			<div class="tab-pane active" id="sshinterf">
+				<h3>Under construction!</h3>
+			</div> <!-- /container -->
+		</div>
+	</div> <!-- div myTabContent -->
 	<!-- Fine Body -->
 	
 	<!-- FOOTER -->
