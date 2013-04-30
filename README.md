@@ -67,7 +67,7 @@ Configure Apache to serve certificate for https connection, and enable site.
 
 Configuration
 -------------
-All configuration for FORCE are collected in the file `globals.php`. All configuration are stored in associative array `$world`:
+All configurations for FORCE are collected in the file `globals.php` and stored in associative array `$world`:
 - `$world['ClusterName']`: string with name for the cluster system;
 - `$world['ClusterLogo']`: string with relative path to cluster logo;
 - `$world['UniLogo']`: here you can insert relative path to a logo for your University/Corporation;
@@ -96,7 +96,7 @@ Thank YOU!
 TODO roadmap:
 -------------
 
-[ ] improve this readme :D
+[x] improve this readme :D
 [ ] implement logging routines
 [x] add multi master-node system in login form
 [x] create user /tmp directory for upload/download
@@ -121,5 +121,5 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-for more info you can contact mailto:matteo.ragni.it@gmail.com
+for more info you can contact me: matteo.ragni.it@gmail.com
 
