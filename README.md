@@ -21,11 +21,11 @@ We have used:
 
 Sreenshot
 ---------
-[ ![Example of login, with selection of masternode](https://github.com/MatteoRagni/Force/blob/master/screenshot/login.PNG) ]
-[ ![Submission form and PBS script generation ](https://github.com/MatteoRagni/Force/blob/master/screenshot/submit.PNG) ]
-[ ![Queue status list, with user deletion control](https://github.com/MatteoRagni/Force/blob/master/screenshot/queue.PNG) ]
-[ ![Script submission and results explorer](https://github.com/MatteoRagni/Force/blob/master/screenshot/explorer.PNG) ]
-[ ![Job details](https://github.com/MatteoRagni/Force/blob/master/screenshot/detail.PNG) ]
+[ ![Example of login, with selection of masternode](http://raw.github.com/MatteoRagni/Force/master/screenshot/login.PNG) ]
+[ ![Submission form and PBS script generation ](http://raw.github.com/MatteoRagni/Force/blob/master/screenshot/submit.PNG) ]
+[ ![Queue status list, with user deletion control](http://raw.github.com/MatteoRagni/Force/blob/master/screenshot/queue.PNG) ]
+[ ![Script submission and results explorer](http://raw.github.com/MatteoRagni/Force/blob/master/screenshot/explorer.PNG) ]
+[ ![Job details](http://raw.github.com/MatteoRagni/Force/blob/master/screenshot/detail.PNG) ]
 
 Installation
 ------------
