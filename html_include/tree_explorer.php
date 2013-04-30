@@ -44,8 +44,8 @@ function tree_xml_decode($xml, $path) {
 						<i class="icon-circle-arrow-right"></i></a>
 						' . $file['name'] . '
 						<small>Last Modified: ' . $file['time'] . ' - Size: ' . $file['size'] . 'B - Path: '. $href  .'</small>
-						<a onclick="click_fun3('."'".$path.$file['name']."'".')" data-toggle="tooltip" title="Put file in launch textbox">  
-						<i class="icon-remove icon-white" style="background-color:red;border-radius:100%" ></i></a></h5>
+						<a onclick="click_delete('."'".$path.$file['name']."'".')" data-toggle="tooltip" title="Delete file" class="pull-right">  
+						<i class="icon-remove icon-white" style="background-color:red; border-radius:100%" ></i></a></h5>
 					</li>
 					';                            
 	}		

@@ -238,7 +238,7 @@ function stylePreview() {
 				title="Script Name" data-content="In this field you can insert a name for your script. Remember that if there is already a script with the same name in your home folder, it'll be overwritten.<br /> Interface automatically adds .pbs extension" 
 				data-html="true" data-container="body">Script Name</a>
 				<input class="input-block-level input-xlarge" id="scriptname appendPrependInput" 
-				type="text" name="scriptname" placeholder="Insert script name" />
+				type="text" name="scriptname" placeholder="Insert script name" form="form-submit-script" />
 				<span class="add-on">.pbs</span>
 			</div>
 		</div>
@@ -253,7 +253,7 @@ function stylePreview() {
 			   	<a id="jobname_ee" href="#" data-toggle="popover" data-title="Error" 
 				   data-content="Use only a-z, 0-9, - and _" data-trigger="manual" data-container="body">
 				<input class="input-block-level input-xlarge" id="jobname prependInput" type="text" 
-				name="jobname" placeholder="Insert job name" onkeypress="compose();"/>
+				name="jobname" placeholder="Insert job name" onkeypress="compose();" onchange="compose();"/>
 				</a>
 			</div>
 		</div>
@@ -596,7 +596,7 @@ where job_name is the name of  the  job,  see  -N  option,  and sequence_number 
 </fieldset>
 </form>
 
-<form class="form-actions" method="POST" action="submit_run.php"> 
+<form class="form-actions" method="POST" action="submit_run.php" onSubmit="return popWindow(this.target)" target="Details" id="form-submit-script"> 
 	<input id="result_script" type="text" name="result_script" style="display:none;">
 	<p align="right">
 	<button type="submit" class="btn btn-primary btn-large"><i class="icon-download-alt icon-white" ></i> Save and submit PBS script</button>
@@ -607,7 +607,7 @@ where job_name is the name of  the  job,  see  -N  option,  and sequence_number 
 <div id="envvars-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3 id="myModalLabel">EnvVariables</h3>
+    <h3 id="myModalLabel">List variables</h3>
   </div>
   <div class="modal-body">
     <p>
@@ -718,4 +718,14 @@ where job_name is the name of  the  job,  see  -N  option,  and sequence_number 
 	TODO
 	* Require GPUS sostituire la textbox con una checkbox!
 -->
-<script> compose(); </script>
+<script> 
+
+compose(); 
+
+function popWindow(wName){
+	features = 'width=400,height=400,toolbar=no,location=no,directories=no,menubar=no,scrollbars=no,copyhistory=no';
+	pop = window.open('',wName,features);
+	if(pop.focus){ pop.focus(); }
+	return true;
+}
+</script>

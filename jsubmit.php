@@ -38,7 +38,13 @@
 
     <!-- Styles and scripts -->
 	<? include('html_include/styles.php'); ?>
-	
+	<script>
+	$(document).ready( function() {
+		var tabsel = '#myTab a[href="#' + location.hash.slice(1) + '"]';
+		$(tabsel).tab('show');
+	});
+	</script>
+		
 <!-- ###################################### -->    
 	<body>
 	
@@ -49,20 +55,20 @@
 	<!-- Body -->
 	<div class="container" id="common-page">
 		<ul class="nav nav-tabs" id="myTab">
-			<li class="active">
-				<a href="#form_create" data-toggle="tab"><h3>Use form to create script</h3></a>
+			<li>
+				<a id="qsubForm" href="#FormCreate" data-toggle="tab"><h3>Use form to create script</h3></a>
 			</li>
 			<li>
-				<a href="#UploadFiles" data-toggle="tab"><h3>Upload script or files</h3></a>
+				<a id="Uploader" href="#UploadFiles" data-toggle="tab"><h3>Upload script or files</h3></a>
 			</li>
 			<li>
-				<a href="#ReloadExisting" data-toggle="tab"><h3>Run script</h3></a>
+				<a id="Reloader" href="#ReloadExisting" data-toggle="tab"><h3>Run script</h3></a>
 			</li>
 		</ul>
 
 		<!-- Suddivisione in Tab: Contenuto delle tab -->
 		<div id="myTabContent" class="tab-content">
-			<div class="tab-pane active" id="form_create">
+			<div class="tab-pane" id="FormCreate">
 				<? include('html_include/qsubform.php'); ?>
 			</div>
 			<div class="tab-pane" id="UploadFiles">

@@ -30,7 +30,7 @@ SSH -> 'ssh'
 						</a>
 					</li>
 					<li <? if ($active === 'submit') { echo 'class="active"'; } ?>>
-						<a href="jsubmit.php">
+						<a href="jsubmit.php#FormCreate">
 							<i class="icon-download-alt icon-white"></i>
 							Submit
 						</a>

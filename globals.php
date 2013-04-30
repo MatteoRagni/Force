@@ -75,6 +75,25 @@
 		}
 	}
 	
+	function ssh2_exec3($connection, $command) {
+		
+		$ssh_stream = ssh2_exec($connection, $command);
+		if (!$ssh_stream) { 
+			die("[globals.php: line 41] Cannot execute: $command");
+		}
+		else {
+			// Estrai lo stream
+			stream_set_blocking($ssh_stream, true);
+			$output = "";
+			while ($buf = fread($ssh_stream,4096*8)) { 
+				$output .= $buf;
+			}
+			fclose($ssh_stream);
+		}
+		return $output;
+	
+	}
+	
 	function ssh2_sftp_down($username, $password, $abs_path) {
 	
 		global $world;

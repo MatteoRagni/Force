@@ -35,13 +35,13 @@
 			if (!ssh2_scp_send($connection_handler, $source, $destination)) {
 				die("[upload_scp.php] SCP not worked for: $name");
 			}			
-			//unlink($source);
+			unlink($source);
 		} else {
 			die("[upload_scp.php] Cannot upload ".$_FILES["filesToUpload"]["name"][$key].": error: ".$error_msg[$error]);
 		}
 	}
 	
-	$redirect = "https://".$_SERVER['HTTP_HOST']."/jsubmit.php";
+	$redirect = "https://".$_SERVER['HTTP_HOST']."/jsubmit.php#UploadFiles";
 	header("Location:$redirect");
 	
 	// Possibili miglioramenti: usare php_session_upload_progress per mostrare le 

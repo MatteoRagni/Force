@@ -3,6 +3,12 @@
 	
 	include_once('globals.php');
 	
+	$redirect = "https://".$_SERVER['HTTP_HOST']."/index.php";
+	if (!isset($_SESSION['username'])) { header("Location:$redirect"); }
+	if (!isset($_SESSION['password'])) { header("Location:$redirect"); }
+	if (!isset($_SESSION['home'])) { header("Location:$redirect"); }
+
+	
 	// Apre la risorsa SSH
 	$connection_handler = ssh2_connect($world['sshserver'],$world['sshport']);
 	if(!$connection_handler) { 
