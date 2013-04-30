@@ -21,11 +21,16 @@ We have used:
 
 Sreenshot
 ---------
-[ ![Example of login, with selection of masternode](http://raw.github.com/MatteoRagni/Force/master/screenshot/login.PNG) ]
-[ ![Submission form and PBS script generation ](http://raw.github.com/MatteoRagni/Force/blob/master/screenshot/submit.PNG) ]
-[ ![Queue status list, with user deletion control](http://raw.github.com/MatteoRagni/Force/blob/master/screenshot/queue.PNG) ]
-[ ![Script submission and results explorer](http://raw.github.com/MatteoRagni/Force/blob/master/screenshot/explorer.PNG) ]
-[ ![Job details](http://raw.github.com/MatteoRagni/Force/blob/master/screenshot/detail.PNG) ]
+### Example of login, with selection of masternode ###
+![Example of login, with selection of masternode](https://raw.github.com/MatteoRagni/Force/master/screenshot/login.PNG)
+### Submission form and PBS script generation ###
+![Submission form and PBS script generation](https://raw.github.com/MatteoRagni/Force/master/screenshot/submit.PNG)
+### Queue status list, with user deletion control ###
+![Queue status list, with user deletion control](https://raw.github.com/MatteoRagni/Force/master/screenshot/queue.PNG)
+### Script submission and results explorer ###
+![Script submission and results explorer](https://raw.github.com/MatteoRagni/Force/master/screenshot/explorer.PNG)
+### Job details ###
+![Job details](https://raw.github.com/MatteoRagni/Force/master/screenshot/detail.PNG)
 
 Installation
 ------------
@@ -59,6 +64,19 @@ unzip master.zip
 mv -Rf master/ /var/www
 ```` 
 Configure Apache to serve certificate for https connection, and enable site.
+
+Configuration
+-------------
+All configuration for FORCE are collected in the file `globals.php`. All configuration are stored in associative array `$world`:
+- `$world['ClusterName']`: string with name for the cluster system;
+- `$world['ClusterLogo']`: string with relative path to cluster logo;
+- `$world['UniLogo']`: here you can insert relative path to a logo for your University/Corporation;
+- `$world['GangliaURL']`: URL to Ganglia Monitoring Webinterface;
+- `$world['University']`: Name of your University/Corporation;
+- `$world['queue_list']`: Here you can insert batch list that may be requested by your user (default for Torque is Batch);
+- `$world['tmp']`: tmp directory that can be used by Force to save temporary files (like uploading/downloading). Make sure this directory is 0664;
+- `$world['server_list'][$i]`: list of master-node, specified as hostname:port;
+- `$debug`: PLEASE, SET THIS VARIABLE TO FALSE TO ENABLE TORQUE ROUTINES;
 
 Thank YOU!
 ----------
