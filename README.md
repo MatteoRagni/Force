@@ -38,3 +38,15 @@ We have used:
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	
 for more info you can contact mailto:matteo.ragni.it@gmail.com
+
+TODO roadmap:
+
+- improve this readme :D
+- implement logging routines
+- add multi master-node system in login form
+- create user /tmp directory for upload/download
+- improve check routines on qsub form
+- add DeleteJob routine
+- add ajaxterm support in SSH page
+- add pbsnodes status insterrogation page
+
