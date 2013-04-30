@@ -111,3 +111,19 @@ body {
 	font-size: 0.8em;
 	width:150px;
 }
+
+/*login*/
+#server_select  {
+	-webkit-border-radius: 0px 4px 4px 0px;
+	-moz-border-radius: 0px 4px 4px 0px;
+	border-radius: 0px 4px 4px 0px;
+}
+
+.titolo_nav {
+	font-size: 0.75em;
+	font-weight: bold;
+}
+
+.image_nav {/*refuso*/}
+
+.titolo_brand { font-weight: bold; }

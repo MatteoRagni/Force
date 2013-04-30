@@ -2,6 +2,10 @@
 	
 	session_start();
 	include_once("globals.php");
+	
+	$exploded = explode(':',$_POST['server_select']);
+	$_SESSION['sshserver'] = $exploded[0];
+	$_SESSION['sshport']   = $exploded[1];
 		
 	$_SESSION['home'] = null;  
 	

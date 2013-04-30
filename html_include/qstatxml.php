@@ -105,14 +105,10 @@ if ($j['state'] === 'Running') {
 	$output .= '		</td>';
 	$output .= '		<td class="muted" width="30%">'.$j['owner'].'</td>';
 	$output .= '		<td align="right" width="10%">';
-if ($j['owned'] === true) {
-	$output .= '			<a href="#" onclick="$('."'#".$j['name'].$j['id']."'".').click();">';
+if ($j['owned'] === true && ($j['state'] === 'Queued' || $j['state'] === 'Running')) {
+	$output .= '			<a href="job_delete.php?jid='.$j['id'].'">';
 	$output .= '				<span class="badge badge-important">Delete</span>';
 	$output .= '			</a>';
-	$output .= '			<form style="display:none;" method="POST" action="qdel.php">';
-	$output .= '				<input type="text" value="'.$j['id'].'" name="jid" />';
-	$output .= '				<button id="'.$j['name'].$j['id'].'" type="submit"></button>';
-	$output .= '			</form>';
 }
 	$output .= '		</td>';
 	$output .= '	</tr>';
@@ -256,8 +252,8 @@ $output .= '			<tr>
   </div>
   <div class="modal-footer">
     <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>';
-	if( $j['owned'] === true ) {
-	$output .='<button class="btn btn-danger" onclick="$('."'#".$j['name'].$j['id']."'".').click()">Delete Job</button>';
+	if( $j['owned'] === true && ($j['state'] === 'Queued' || $j['state'] === 'Running')) {
+	$output .='<a class="btn btn-danger" href="job_delete.php?jid='.$j['id'].'">Delete Job</a>';
 	}
 $output .= '  </div>
 </div>';

@@ -8,15 +8,15 @@
 	if (!isset($_SESSION['password'])) { header("Location:$redirect"); }
 	if (!isset($_SESSION['home'])) { header("Location:$redirect"); }
 	
-	$tmpfile = '/tmp/'.uniqid('qsub-');
+	$tmpfile = $world['tmp'].'/'.uniqid('qsub-');
 	file_put_contents($tmpfile, $_POST['result_script']);
 	if(!$_POST['scriptname']) { $_POST['scriptname'] = uniqid('qsub-'); }
 	$file = $_SESSION['home'].'/'.$_POST['scriptname'].'.pbs';
 	
 	// Apre la risorsa SSH
-	$connection_handler = ssh2_connect($world['sshserver'],$world['sshport']);
+	$connection_handler = ssh2_connect($_SESSION['sshserver'],$_SESSION['sshport']);
 	if(!$connection_handler) { 
-		die("[submit_run.php] Connection Failed: ". $world['sshserver']." at ".$world['sshport']); 
+		die("[submit_run.php] Connection Failed: ". $_SESSION['sshserver']." at ".$_SESSION['sshport']); 
 	}
 		
 	// Esegue la autenticazione in SSH con password plain

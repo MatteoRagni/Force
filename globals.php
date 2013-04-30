@@ -2,14 +2,17 @@
 	$world['ClusterName']           = "X-CLUSTER";
 	$world['ClusterLogo']           = "img/x-cluster-logo.png";
 	$world['UniLogo']				= "img/unitn-logo.png";
-	$world['GangliaURL']            = 'http://x-cluster.science.unitn.it';
+	$world['GangliaURL']            = 'http://ganglia.wikimedia.org/latest/';
 	$world['AdminMail']             = "nirvana1289@gmail.com";
 	$world['University']            = "Università degli studi di Trento";
-	$world['sshserver']             = "localhost";
-	$world['sshport']               = "22";
 	$world['queue_list']			= array("batch","Another_queue1","Another_queue2");
 	$world['upload_temp']			= '/var/www/uploads';
+	$world['tmp']					= '/tmp';
 	$debug							= true;
+	
+	// List server
+	$world['server_list'][0] = 'localhost:22';
+	$world['server_list'][1] = '192.168.1.10:22';
 	
 	// Bisogna ricordarsi di settare il parametro di upload_temp_dir
 	
@@ -19,11 +22,12 @@
 	
 	$world['ClusterLogo2'] = "<img src=\"" . $world['ClusterLogo'] . "\" width=\"150px\">"; 
 	$world['UniLogo2'] = "<img src=\"" . $world['UniLogo'] . "\" width=\"150px\">"; 
-	$world['GangliaURL2'] = '<a href="' . $world['GangliaURL'] . '"><i class="icon-eye-open icon-white"></i> Ganglia</a>';
+	$world['GangliaURL2'] = '<a href="' . $world['GangliaURL'] . '" class="titolo_nav"><i class="icon-eye-open icon-white"></i> Ganglia</a>';
 	$world['AdminMail2'] = "<a href=\"mailto:" . $world['AdminMail'] . "\">Contact Admin</a>";
 	$world['AdminMail3'] = "<a href=\"mailto:" . $world['AdminMail'] . "\">here</a>";
 	
-	$VERSION = "v0.7 - Linux - DEBUG";
+	$VERSION = 'v0.7Alpha - Linux';
+	if($debug) { $VERSION .= ' - DebugOn'; }
 ?>
 
 <?php
@@ -40,9 +44,9 @@
 		global $world;
 		
 		// Apre la risorsa SSH
-		$connection_handler = ssh2_connect($world['sshserver'],$world['sshport']);
+		$connection_handler = ssh2_connect($_SESSION['sshserver'],$_SESSION['sshport']);
 		if(!$connection_handler) { 
-			die("[globals.php] Connection Failed: ". $world['sshserver']." at ".$world['sshport']); 
+			die("[globals.php] Connection Failed: ". $_SESSION['sshserver']." at ".$_SESSION['sshport']); 
 		}
 	
 		// Esegue la autenticazione in SSH con password plain
@@ -99,9 +103,9 @@
 		global $world;
 		
 		// Apre la risorsa SSH
-		$connection_handler = ssh2_connect($world['sshserver'],$world['sshport']);
+		$connection_handler = ssh2_connect($_SESSION['sshserver'],$_SESSION['sshport']);
 		if(!$connection_handler) { 
-			die("[globals.php] Connection Failed: ". $world['sshserver']." at ".$world['sshport']); 
+			die("[globals.php] Connection Failed: ". $_SESSION['sshserver']." at ".$_SESSION['sshport']); 
 		}
 		
 		// Esegue la autenticazione in SSH con password plain

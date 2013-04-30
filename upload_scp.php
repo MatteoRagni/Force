@@ -2,17 +2,17 @@
 	session_start();
 	include_once('globals.php');
 	
-	//$redirect = "https://".$_SERVER['HTTP_HOST']."/index.php";
-	//if (!isset($_SESSION['username'])) { header("Location:$redirect"); }
-	//if (!isset($_SESSION['password'])) { header("Location:$redirect"); }
-	//if (!isset($_SESSION['home'])) { header("Location:$redirect"); }
+	$redirect = "https://".$_SERVER['HTTP_HOST']."/index.php";
+	if (!isset($_SESSION['username'])) { header("Location:$redirect"); }
+	if (!isset($_SESSION['password'])) { header("Location:$redirect"); }
+	if (!isset($_SESSION['home'])) { header("Location:$redirect"); }
 	
 	$error_msg = array("OK", "exceed max_file_size - ini", "exceed max_file_size", "partial upload", "no file uploaded", "write to disk failed", "temp dir missing", "unknown extension error");
 	
 	// Apre la risorsa SSH
-	$connection_handler = ssh2_connect($world['sshserver'],$world['sshport']);
+	$connection_handler = ssh2_connect($_SESSION['sshserver'],$_SESSION['sshport']);
 	if(!$connection_handler) { 
-		die("[upload_scp.php] Connection Failed: ". $world['sshserver']." at ".$world['sshport']); 
+		die("[upload_scp.php] Connection Failed: ". $_SESSION['sshserver']." at ".$_SESSION['sshport']); 
 	}
 		
 	// Esegue la autenticazione in SSH con password plain
@@ -26,7 +26,7 @@
 			$tmp_name = $_FILES["filesToUpload"]["tmp_name"][$key];
 			$name = $_FILES["filesToUpload"]["name"][$key];
 			
-			$source = $world['upload_temp'] . '/' . $name;
+			$source = $world['tmp'] . '/' . $name;
 			$destination = $_SESSION['home'] . '/' .$name; 
 			
 			// localhost

@@ -10,9 +10,9 @@
 
 	
 	// Apre la risorsa SSH
-	$connection_handler = ssh2_connect($world['sshserver'],$world['sshport']);
+	$connection_handler = ssh2_connect($_SESSION['sshserver'],$_SESSION['sshport']);
 	if(!$connection_handler) { 
-		die("[download.php] Connection Failed: ". $world['sshserver']." at ".$world['sshport']); 
+		die("[download.php] Connection Failed: ". $_SESSION['sshserver']." at ".$_SESSION['sshport']); 
 	}
 		
 	// Esegue la autenticazione in SSH con password plain
@@ -24,7 +24,7 @@
 	// Copia il file in un punto raggiungibile dall'interprete	
 	// il nome viene reso irriconoscibile
 	$file = $_SESSION['home'].'/'.$_GET['file'];
-	$temp_file = '/tmp/'.uniqid('down-');
+	$temp_file = $world['tmp'].'/'.uniqid('down-');
 	ssh2_scp_recv($connection_handler,$file,$temp_file);
 	
 	header('Content-Description: File Transfer');

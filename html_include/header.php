@@ -14,30 +14,30 @@ SSH -> 'ssh'
 <div class="navbar navbar-inverse navbar-fixed-top">
 	<div class="navbar-inner">
 		<div class="container">
-			<a class="brand" href="#"><? echo $world['ClusterName']; ?></a>
+			<a class="brand titolo_brand" href="#"><? echo $world['ClusterName']; ?></a>
 			<div class="nav-collapse collapse">
 				<ul class="nav">
 					<li <? if ($active === 'home') { echo 'class="active"'; } ?>>
-						<a href="mainmenu.php">
-							<i class="icon-home icon-white"></i> 
+						<a href="mainmenu.php" class="titolo_nav">
+							<i class="icon-home icon-white image-nav"></i> 
 							Home
 						</a>
 					</li>
 					<li <? if ($active === 'queue') { echo 'class="active"'; } ?>>
-						<a href="queue_status.php">
-							<i class="icon-th-list icon-white"></i>
+						<a href="queue_status.php" class="titolo_nav">
+							<i class="icon-th-list icon-white image-nav"></i>
 							Queue
 						</a>
 					</li>
 					<li <? if ($active === 'submit') { echo 'class="active"'; } ?>>
-						<a href="jsubmit.php#FormCreate">
-							<i class="icon-download-alt icon-white"></i>
+						<a href="jsubmit.php#FormCreate" class="titolo_nav">
+							<i class="icon-download-alt icon-white image-nav"></i>
 							Submit
 						</a>
 					</li>
 					<li <? if ($active === 'ssh') { echo 'class="active"'; } ?>>
-						<a href="sshinterf.php">
-							<i class="icon-tasks icon-white"></i>
+						<a href="sshinterf.php" class="titolo_nav">
+							<i class="icon-tasks icon-white image-nav"></i>
 							SSH
 						</a>
 					</li>
@@ -49,9 +49,9 @@ SSH -> 'ssh'
 						<? echo $world['GangliaURL2']; ?>
 					</li>
 					<li>
-						<a href="logout.php">
-							<i class="icon-user icon-white"></i>
-							Logout
+						<a href="logout.php" class="titolo_nav">
+							<i class="icon-user icon-white image-nav"></i>
+							Logout <? echo $_SESSION['username'].'@'.$_SESSION['sshserver']; ?>
 						</a>
 					</li>
 				</ul>

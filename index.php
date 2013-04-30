@@ -19,6 +19,20 @@
 	if (!isset($_SESSION['username'])) $_SESSION['username'] = null;
 	if (!isset($_SESSION['password'])) { $_SESSION['password'] = null; }
 	if (!isset($_SESSION['home'])) { $_SESSION['home'] = null; }	
+
+	function create_server_list($server_array) {
+		$output = "";
+		$output = '<select name="server_select" class="span2" id="server_select">';
+		
+		foreach($server_array as $server) {
+			
+			$output .= '
+				<option>'.$server.'</option>';
+		}
+		$output .= '</select>';
+		return $output;
+	}
+?>
 	
 ?>
 
@@ -62,7 +76,11 @@
 			<h2 class="form-signin-heading">Please login</h2>
 			<input type="text" class="input-block-level" name="username" placeholder="SSH username">
 			<input type="password" class="input-block-level" name="password" placeholder="Password">
-			<button class="btn btn-large btn-primary" type="submit">Login</button>
+			<div class="input-prepend input-append" style="position:relative; left:-2px;">
+				<button class="btn btn-primary span2" type="submit">Login</button>
+				<span class="add-on">@</span>
+				<? echo create_server_list($world['server_list']); ?>
+			</div>
 		</form>
     </div> <!-- /container -->
 	<!-- Fine Body -->

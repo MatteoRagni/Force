@@ -9,9 +9,9 @@
 	if (!isset($_SESSION['home'])) { header("Location:$redirect"); }
 	
 	// Apre la risorsa SSH
-	$connection_handler = ssh2_connect($world['sshserver'],$world['sshport']);
+	$connection_handler = ssh2_connect($_SESSION['sshserver'],$_SESSION['sshport']);
 	if(!$connection_handler) { 
-		die("[delete.php] Connection Failed: ". $world['sshserver']." at ".$world['sshport']); 
+		die("[delete.php] Connection Failed: ". $_SESSION['sshserver']." at ".$_SESSION['sshport']); 
 	}
 		
 	// Esegue la autenticazione in SSH con password plain
