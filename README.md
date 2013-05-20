@@ -78,6 +78,10 @@ All configurations for FORCE are collected in the file `globals.php` and stored 
 - `$world['server_list'][$i]`: list of master-node, specified as hostname:port;
 - `$debug`: PLEASE, SET THIS VARIABLE TO FALSE TO ENABLE TORQUE ROUTINES;
 
+Warning! on torque server must be enabled the flag query_other_jobs to allow other user to see others jobs
+`qmgr -c 'set server query_other_jobs = 1'`
+
+
 Thank YOU!
 ----------
 
