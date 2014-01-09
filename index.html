@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Force : A web interface for Torque Resource Manager" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Force</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/MatteoRagni/Force">View on GitHub</a>
+
+          <h1 id="project_title">Force</h1>
+          <h2 id="project_tagline">A web interface for Torque Resource Manager</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/MatteoRagni/Force/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/MatteoRagni/Force/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h2>
+<a name="force" class="anchor" href="#force"><span class="octicon octicon-link"></span></a>Force</h2>
+
+<p>Force is a web interface for Torque/Maui clusters, based upon php_ssh2 libraries. It uses as backend Torque binaries to get info upon jobs' status, deletion and submission.
+Security is granted through ssh and https sessions.</p>
+
+<p>Actually, the interface is under development, so many features are implemented but disabled through &lt;$debug&gt; variable. </p>
+
+<p>We have used:</p>
+
+<ul>
+<li>Debian based distribution of GNU/Linux</li>
+<li>lib_php_ssh2-0.12</li>
+<li>lib_openssl</li>
+<li>php-5</li>
+<li>html-5</li>
+<li>bootstrap.css</li>
+<li>jQuery-1.9</li>
+<li>GC_Prettyprint</li>
+<li>torque-2.5.12</li>
+<li>tree (apt-get install tree)</li>
+</ul><h2>
+<a name="sreenshot" class="anchor" href="#sreenshot"><span class="octicon octicon-link"></span></a>Sreenshot</h2>
+
+<h3>
+<a name="example-of-login-with-selection-of-masternode" class="anchor" href="#example-of-login-with-selection-of-masternode"><span class="octicon octicon-link"></span></a>Example of login, with selection of masternode</h3>
+
+<p><img src="https://raw.github.com/MatteoRagni/Force/master/screenshot/login.PNG" alt="Example of login, with selection of masternode"></p>
+
+<h3>
+<a name="submission-form-and-pbs-script-generation" class="anchor" href="#submission-form-and-pbs-script-generation"><span class="octicon octicon-link"></span></a>Submission form and PBS script generation</h3>
+
+<p><img src="https://raw.github.com/MatteoRagni/Force/master/screenshot/submit.PNG" alt="Submission form and PBS script generation"></p>
+
+<h3>
+<a name="queue-status-list-with-user-deletion-control" class="anchor" href="#queue-status-list-with-user-deletion-control"><span class="octicon octicon-link"></span></a>Queue status list, with user deletion control</h3>
+
+<p><img src="https://raw.github.com/MatteoRagni/Force/master/screenshot/queue.PNG" alt="Queue status list, with user deletion control"></p>
+
+<h3>
+<a name="script-submission-and-results-explorer" class="anchor" href="#script-submission-and-results-explorer"><span class="octicon octicon-link"></span></a>Script submission and results explorer</h3>
+
+<p><img src="https://raw.github.com/MatteoRagni/Force/master/screenshot/explorer.PNG" alt="Script submission and results explorer"></p>
+
+<h3>
+<a name="job-details" class="anchor" href="#job-details"><span class="octicon octicon-link"></span></a>Job details</h3>
+
+<p><img src="https://raw.github.com/MatteoRagni/Force/master/screenshot/detail.PNG" alt="Job details"></p>
+
+<h2>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<h3>
+<a name="libssh2-for-php" class="anchor" href="#libssh2-for-php"><span class="octicon octicon-link"></span></a>libssh2 for php</h3>
+
+<p>It's simple to install this package if you use distribution's repository:</p>
+
+<div class="highlight highlight-sh"><pre>sudo apt-get install libssh2-php
+</pre></div>
+
+<p>Please make sure you have installed version 0.12 or greater.</p>
+
+<h3>
+<a name="openssl-support-for-apache2" class="anchor" href="#openssl-support-for-apache2"><span class="octicon octicon-link"></span></a>OpenSSL support for Apache2</h3>
+
+<p>If you need a self-signed certificate, you can follow this easy guide:
+<a href="http://wiki.debian.org/Self-Signed_Certificate">http://wiki.debian.org/Self-Signed_Certificate</a>
+written by GeoffSimmons (thank you!)</p>
+
+<h3>
+<a name="tree" class="anchor" href="#tree"><span class="octicon octicon-link"></span></a>tree</h3>
+
+<div class="highlight highlight-sh"><pre>sudo apt-get install tree
+</pre></div>
+
+<h3>
+<a name="force-installation" class="anchor" href="#force-installation"><span class="octicon octicon-link"></span></a>FORCE Installation</h3>
+
+<p>Simply copy all package in your /var/www directory (or in directory in which you will serve this site):
+Download the package and unzip it:</p>
+
+<div class="highlight highlight-sh"><pre>wget https://github.com/MatteoRagni/Force/archive/master.zip
+unzip master.zip
+mv -Rf master/ /var/www
+</pre></div>
+
+<p>Configure Apache to serve certificate for https connection, and enable site.</p>
+
+<h2>
+<a name="configuration" class="anchor" href="#configuration"><span class="octicon octicon-link"></span></a>Configuration</h2>
+
+<p>All configurations for FORCE are collected in the file <code>globals.php</code> and stored in associative array <code>$world</code>:</p>
+
+<ul>
+<li>
+<code>$world['ClusterName']</code>: string with name for the cluster system;</li>
+<li>
+<code>$world['ClusterLogo']</code>: string with relative path to cluster logo;</li>
+<li>
+<code>$world['UniLogo']</code>: here you can insert relative path to a logo for your University/Corporation;</li>
+<li>
+<code>$world['GangliaURL']</code>: URL to Ganglia Monitoring Webinterface;</li>
+<li>
+<code>$world['University']</code>: Name of your University/Corporation;</li>
+<li>
+<code>$world['queue_list']</code>: Here you can insert batch list that may be requested by your user (default for Torque is Batch);</li>
+<li>
+<code>$world['tmp']</code>: tmp directory that can be used by Force to save temporary files (like uploading/downloading). Make sure this directory is 0664;</li>
+<li>
+<code>$world['server_list'][$i]</code>: list of master-node, specified as hostname:port;</li>
+<li>
+<code>$debug</code>: PLEASE, SET THIS VARIABLE TO FALSE TO ENABLE TORQUE ROUTINES;</li>
+</ul><p>Warning! on torque server must be enabled the flag query_other_jobs to allow other user to see others jobs
+<code>qmgr -c 'set server query_other_jobs = 1'</code></p>
+
+<h2>
+<a name="thank-you" class="anchor" href="#thank-you"><span class="octicon octicon-link"></span></a>Thank YOU!</h2>
+
+<ul>
+<li>libssh2: <a href="http://www.libssh2.org/">http://www.libssh2.org/</a> by <a href="http://gitstats.josefsson.org/libssh2/authors.html">http://gitstats.josefsson.org/libssh2/authors.html</a>
+</li>
+<li>openSSL: <a href="http://www.openssl.org/">http://www.openssl.org/</a> by Eric Young and Tim Hudson</li>
+<li>php: <a href="http://www.php.net/">http://www.php.net/</a> by Rasmus Lerdorf</li>
+<li>html: <a href="http://www.w3.org/">http://www.w3.org/</a>
+</li>
+<li>javascript</li>
+<li>Bootstrap CSS: <a href="http://twitter.github.io/bootstrap/">http://twitter.github.io/bootstrap/</a> by <a href="https://github.com/mdo" class="user-mention">@mdo</a> and <a href="https://github.com/fat" class="user-mention">@fat</a>
+</li>
+<li>jQuery: <a href="https://jquery.org/">https://jquery.org/</a>
+</li>
+<li>GC-Prettyprint: <a href="https://code.google.com/p/google-code-prettify/">https://code.google.com/p/google-code-prettify/</a> by mikesamuel</li>
+<li>Torque/Maui: Adaptive Computing</li>
+<li>tree: by Steve Baker, Thomas Moore, Francesc Rocher, Kyosuke Tokoro</li>
+</ul><h2>
+<a name="todo-roadmap" class="anchor" href="#todo-roadmap"><span class="octicon octicon-link"></span></a>TODO roadmap:</h2>
+
+<p>[x] improve this readme :D</p>
+
+<p>[ ] implement logging routines</p>
+
+<p>[x] add multi master-node system in login form</p>
+
+<p>[x] create user /tmp directory for upload/download</p>
+
+<p>[ ] improve check routines on qsub form</p>
+
+<p>[x] add DeleteJob routine</p>
+
+<p>[ ] add ajaxterm support in SSH page</p>
+
+<p>[ ] add pbsnodes status insterrogation page</p>
+
+<p>Copyright (C) 2013 Matteo Ragni</p>
+
+<p>This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.</p>
+
+<p>This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.</p>
+
+<p>You should have received a copy of the GNU General Public License
+along with this program.  If not, see <a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>.</p>
+
+<p>for more info you can contact me: matteo.ragni.it 'at' gmail.com</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Force maintained by <a href="https://github.com/MatteoRagni">MatteoRagni</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
